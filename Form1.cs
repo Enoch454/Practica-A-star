@@ -15,6 +15,15 @@ namespace Practica_A_star
         public Form1()
         {
             InitializeComponent();
+
+        }
+
+        public void iniciarTablero()
+        {
+            byte alto = 10;
+            byte ancho = 10;
+
+            
         }
     }
 }
