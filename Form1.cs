@@ -106,7 +106,7 @@ namespace Practica_A_star
                     }
                     else
                     {
-                        panel.BackColor = Color.FromArgb(93, 173, 226);
+                        panel.BackColor = Color.FromArgb(127, 179, 213);
                     }
                     panel.Size = new Size(widthCasilla, heightCasilla);
                     panel.Location = new Point(i * widthCasilla, j * heightCasilla);
@@ -155,7 +155,6 @@ namespace Practica_A_star
         {
             Thread hilo1 = new Thread(graficarOrigenDestino);
             hilo1.Start();
-            Thread.Sleep(2000);
             Thread hilo2 = new Thread(graficarRuta);
             hilo2.Start();
         }
