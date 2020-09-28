@@ -18,15 +18,6 @@ namespace Practica_A_star
         {
             InitializeComponent();
 
-            iniciarTablero();
-            tablero.iniciarBusqueda();
-            tablero.generarRuta();
-
-            foreach(byte[] i in tablero.Ruta)
-            {
-                listBox1.Items.Add(i.Clone().ToString());
-            }
-
         }
 
         public void iniciarTablero()
@@ -59,9 +50,26 @@ namespace Practica_A_star
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            iniciarTablero();
+            
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tablero.generarRuta();
+
+            foreach (byte[] i in tablero.Ruta)
+            {
+                listBox1.Items.Add(i[0] + ", " + i[1]);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tablero.iniciarBusqueda();
+            
         }
     }
 }

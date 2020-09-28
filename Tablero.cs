@@ -91,14 +91,24 @@ namespace Practica_A_star
             {
                 // si se ha agragado la casilla destino a la lista cerrada
                 // entonces podemos dar por concluidad la busqueda
-                if (listaCerrara.Last().Equals(destino))
+                bool esDestino = false;
+                //me di cuenta que esta mas escrito listaCerrara, pero ya estamos muy avanzados en el codigo para corregir esa madre alch
+                foreach(Byte[] i in listaCerrara)
+                {
+                    if(i[0] == destino[0] && i[1] == destino[1])
+                    {
+                        esDestino = true;
+                        break;
+                    }
+                }
+                if (esDestino)
                 {
                     break;
                 }
                 else
                 {
                     Byte[] pasoActual = listaCerrara.Last();
-                    //calculo de casillas al rededor en sentido a manesillas
+                    //calculo de casillas al rededor en sentido a manecillas
                     //del reloj
 
                     //se estiman cuales serian las coorenadas de las casillas
@@ -126,13 +136,57 @@ namespace Practica_A_star
                         //se aplica condicion para omitir coordenadas fuera de rango
                         bool dentroRango = (c[0] >= 0 && c[0] < casillas.GetLength(0)) &&
                                            (c[1] >= 0 && c[1] < casillas.GetLength(1));
-                        //tambien se considera condicion para casillas bloqueadas
-                        bool estaHabilitada = casillas[c[0], c[1]].estaHabilitada;
-                        if (dentroRango && estaHabilitada)
+
+                        if (dentroRango)
                         {
-                            //procedo a calcular coste y agregar a lista abieta
-                            casillas[c[0],c[1]].coste = this.coste(c);
-                            listaAbierta.Add(c);
+                            //tambien se considera condicion para casillas bloqueadas
+                            bool estaHabilitada = casillas[c[0], c[1]].estaHabilitada;
+                            bool estaEnCerrada = false;
+                            for (int j = 0; j < listaCerrara.Count; j -= -1)
+                            {
+                                if (c[1] == listaCerrara[j][1] && c[0] == listaCerrara[j][0])
+                                {
+                                    estaEnCerrada = true;
+                                    break;
+                                }
+                            }
+                            if (estaHabilitada && !estaEnCerrada)
+                            {
+                                //existe ya esta casilla en la lista abierta ???
+                                bool estaEnAbierta = false;
+                                for (int j = 0; j < listaAbierta.Count; j -= -1)
+                                {
+                                    if (c[1] == listaAbierta[j][1] && c[0] == listaAbierta[j][0])
+                                    {
+                                        estaEnAbierta = true;
+                                        break;
+                                    }
+                                }
+                                if (estaEnAbierta)
+                                {
+                                    // el nuevo coste de la casilla es menor al valor de
+                                    // coste que ya tiene ????
+                                    int nuevoCoste = this.coste(c);
+                                    if (nuevoCoste < casillas[c[0], c[1]].coste)
+                                    {
+                                        //procedo a calcular coste y agregar a lista abieta
+                                        casillas[c[0], c[1]].coste = this.coste(c);
+                                        listaAbierta.Remove(c);
+                                        listaAbierta.Add(c);
+                                        casillas[c[0], c[1]].puntero = pasoActual;
+                                    }
+
+                                }
+                                else
+                                {
+                                    //procedo a calcular coste y agregar a lista abieta
+                                    casillas[c[0], c[1]].coste = this.coste(c);
+                                    listaAbierta.Add(c);
+                                    casillas[c[0], c[1]].puntero = pasoActual;
+                                }
+
+                            }
+
                         }
 
                     }
@@ -146,6 +200,7 @@ namespace Practica_A_star
                     int min = listaAbiertaValores.Min();
                     int index = listaAbiertaValores.IndexOf(min);
                     listaCerrara.Add(listaAbierta[index]);
+                    listaAbierta.RemoveAt(index);
 
                 }
             }
