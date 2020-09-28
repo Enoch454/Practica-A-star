@@ -24,7 +24,7 @@ namespace Practica_A_star
         //public bool esDestino { get; set; }
         public int coste { get; set; }
         public int manhattan { get; set; }
-        public int funcionStar { get { return (coste + manhattan); } }
+        public int funcionAStar { get { return (coste + manhattan); } }
         public byte[] puntero { get; set; }
     }
 }

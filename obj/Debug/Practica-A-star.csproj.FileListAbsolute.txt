@@ -1,0 +1,9 @@
+D:\Documents\Ing\7moSemestre\InteligenciaArtificial\Unidad1\Practica-A-star\obj\Debug\Practica-A-star.csprojAssemblyReference.cache
+D:\Documents\Ing\7moSemestre\InteligenciaArtificial\Unidad1\Practica-A-star\obj\Debug\Practica_A_star.Form1.resources
+D:\Documents\Ing\7moSemestre\InteligenciaArtificial\Unidad1\Practica-A-star\obj\Debug\Practica_A_star.Properties.Resources.resources
+D:\Documents\Ing\7moSemestre\InteligenciaArtificial\Unidad1\Practica-A-star\obj\Debug\Practica-A-star.csproj.GenerateResource.cache
+D:\Documents\Ing\7moSemestre\InteligenciaArtificial\Unidad1\Practica-A-star\bin\Debug\Practica-A-star.exe.config
+D:\Documents\Ing\7moSemestre\InteligenciaArtificial\Unidad1\Practica-A-star\bin\Debug\Practica-A-star.exe
+D:\Documents\Ing\7moSemestre\InteligenciaArtificial\Unidad1\Practica-A-star\bin\Debug\Practica-A-star.pdb
+D:\Documents\Ing\7moSemestre\InteligenciaArtificial\Unidad1\Practica-A-star\obj\Debug\Practica-A-star.exe
+D:\Documents\Ing\7moSemestre\InteligenciaArtificial\Unidad1\Practica-A-star\obj\Debug\Practica-A-star.pdb
