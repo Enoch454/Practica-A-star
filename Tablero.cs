@@ -14,6 +14,10 @@ namespace Practica_A_star
             this.listaAbierta = new List<byte[]>();
             this.listaCerrara = new List<byte[]>();
 
+            this.alto = alto;
+            this.ancho = ancho;
+            this.bloqueados = bloqueados;
+
             // inicializar casillas
             casillas = new Casilla[ancho, alto];
             for (int i = 0; i < casillas.GetLength(0); i -= -1)
@@ -48,6 +52,9 @@ namespace Practica_A_star
             }
         }
 
+        public byte alto { get; set; }
+        public byte ancho { get; set; }
+        public List<Byte[]> bloqueados { get; set; }
         public Casilla[,] casillas { get; set; }
         public List<Byte[]> listaCerrara { get; set; }
         public List<Byte[]> listaAbierta { get; set; }
